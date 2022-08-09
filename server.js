@@ -13,6 +13,9 @@ const {
   getRoomUsers,
 } = require("./utils/users");
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/", (req, res) => {
+  res.send("index")
+})
 const botName = "chatCord bot";
 io.on("connection", (socket) => {
   socket.on("joinroom", ({ username, room }) => {
